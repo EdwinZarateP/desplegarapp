@@ -27,3 +27,11 @@
 + Crear un carpeta routes para almacenar las rutas del servidor
 + Crear un carpeta views para almacenar los html o otros
 
+## Paso 3: usar el framework de express 
++ editar el archivo server.js para usar el framework de express
+    - //Con esto creamos el servidor y lo guardamos en la variable app para luego exportarlo
+    - const express = require('express');
+    - const app  = express();
+    - module.exports=app;
+
++ editar el archivo index.js para importa el framework de express creado en server.js
