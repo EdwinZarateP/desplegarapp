@@ -64,3 +64,6 @@
     - Schema: para definir un schema de mis datos
     - model: para crear una clase para tener metodos y propiedades que se pueden acceder desde codigo
 + Creamos el modelo para User.js de la misma manera
+
+## Paso 7: uso de handlebars
++ dentro de la carpeta views se crearon las carpetas layouts y partials
