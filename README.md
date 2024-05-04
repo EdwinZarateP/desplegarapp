@@ -58,3 +58,9 @@
 + Editamos el database.js para usar mongoose para usar mongo
 + Hacer que se requiera en index.js con require('dotenv').config()
     - Tenga en cuenta que el archivo .env nunca debe subirse al repositorio, porque para ello el servicio de hosting que usemos nos va a ayudar con eso
+
+## Paso 6: Modelar los datos de la bd
++ Creamos el modelo para Notes.js en la carpeta models usando herramientas de mongoose como:
+    - Schema: para definir un schema de mis datos
+    - model: para crear una clase para tener metodos y propiedades que se pueden acceder desde codigo
++ Creamos el modelo para Notes.js
