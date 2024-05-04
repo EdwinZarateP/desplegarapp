@@ -8,7 +8,7 @@ const NoteSchema= new Schema({
     description:{ type:String, required:true }
 },
 {timestamps:true} //esta linea es para saber cuando se ha creado o actualizado el documento
-)
+);
 
 //2. creamos el modelo y lo exportamos
 
