@@ -53,3 +53,8 @@
 
 + crear la ruta de los archivos estaticos
     - app.use(express.static(path.join(__dirname,'public')))
+
+## Paso 5: conectar bd y crear variables de entorno
++ Editamos el database.js para usar mongoose para usar mongo
++ Hacer que se requiera en index.js con require('dotenv').config()
+    - Tenga en cuenta que el archivo .env nunca debe subirse al repositorio, porque para ello el servicio de hosting que usemos nos va a ayudar con eso
