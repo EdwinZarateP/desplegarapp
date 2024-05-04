@@ -63,4 +63,4 @@
 + Creamos el modelo para Notes.js en la carpeta models usando herramientas de mongoose como:
     - Schema: para definir un schema de mis datos
     - model: para crear una clase para tener metodos y propiedades que se pueden acceder desde codigo
-+ Creamos el modelo para Notes.js
++ Creamos el modelo para User.js de la misma manera

@@ -3,14 +3,14 @@ const {Schema, model} = require('mongoose');
 
 
 //1. Creamos el Schema
-const NoteSchema= new Schema({
-    title:{ type:String, required:true },
-    description:{ type:String, required:true }
+const UserSchema= new Schema({
+    name:{ type:String, required:true },
+    email:{ type:String, required:true },
+    password:{ type:String, required:true }
 },
 {timestamps:true} //esta linea es para saber cuando se ha creado o actualizado el documento
 )
 
 //2. creamos el modelo y lo exportamos
 
-module.exports = model('Note', NoteSchema)
-
+module.exports = model('User', NoteSchema)
