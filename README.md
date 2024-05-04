@@ -35,3 +35,21 @@
     - module.exports=app;
 
 + editar el archivo index.js para importa el framework de express creado en server.js
+
+## Paso 4: configuracion de puertos, ruta principal y estaticos 
++ Editar el  package.json y colocar:
+    - "start": "node src/index.js",
+    - "dev": "nodemon src/index.js"
+
++ Editar server.js en Settings, en cada sección esta la descripcion para que funciona
+    - app.set('port', process.env.PORT||4000)
+    - app.set('views', path.join(__dirname,'views')) 
+
++ Editar server.js las Middlewares en cada sección esta la descripcion para que funciona
+    - app.use(express.urlencoded({extended:false}));
+
++ crear la ruta principal 
+    - app.get('/', (req, res)=>{res.send('Hola todos perros');})
+
++ crear la ruta de los archivos estaticos
+    - app.use(express.static(path.join(__dirname,'public')))
