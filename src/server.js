@@ -35,9 +35,7 @@ app.use(express.urlencoded({extended:false}));
 //-------------------------------------------------------------------------------
 //Routes: que son las rutas
 
-app.get('/', (req, res)=>{
-    res.render('index');
-})
+app.use(require('./routes/index.routes'));
 
 //-------------------------------------------------------------------------------
 //Global variables
