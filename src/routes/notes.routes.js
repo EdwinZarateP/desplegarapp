@@ -13,7 +13,8 @@ const {
 
 //nueva nota
 router.get('/notes/add', renderizarNoteForm);
-router.post('/notes/add', crearNuevaNota);
+
+router.post('/notes/new-note', crearNuevaNota);
 
 //obtener todas las notas
 router.get('/notes', renderizarNotas);

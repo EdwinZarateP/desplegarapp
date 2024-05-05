@@ -1,9 +1,10 @@
 const notesController = {};
 
 notesController.renderizarNoteForm = (req, res)=>{
-    res.send('notes add')};
+    res.render('notes/nuevaNota')};
 
 notesController.crearNuevaNota = (req, res)=>{
+    console.log(req.body) //aqui me doy cuenta que estoy recibiendo porque req es peticion 
     res.send('nueva nota')};
 
 notesController.renderizarNotas = (req, res)=>{
