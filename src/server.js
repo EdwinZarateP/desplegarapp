@@ -32,10 +32,12 @@ app.set('view engine','.hbs')
 //de convertir esos datos en un objeto json 
 app.use(express.urlencoded({extended:false}));
 
+
 //-------------------------------------------------------------------------------
 //Routes: que son las rutas
 
 app.use(require('./routes/index.routes'));
+app.use(require('./routes/notes.routes'));
 
 //-------------------------------------------------------------------------------
 //Global variables
