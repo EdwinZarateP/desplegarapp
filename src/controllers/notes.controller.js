@@ -1,14 +1,19 @@
 const notesController = {};
+const Notes = require('../models/Notes');
+const modeloNotas = require('../models/Notes')
 
 notesController.renderizarNoteForm = (req, res)=>{
     res.render('notes/nuevaNota')};
 
-notesController.crearNuevaNota = (req, res)=>{
-    console.log(req.body) //aqui me doy cuenta que estoy recibiendo porque req es peticion 
+notesController.crearNuevaNota = async (req, res)=>{
+    const { titulo, descripcion } =req.body;
+    const nuevaNota = new modeloNotas({title:titulo, description:descripcion});
+    await nuevaNota.save();
     res.send('nueva nota')};
 
-notesController.renderizarNotas = (req, res)=>{
-    res.send('renderizado de notas')};
+notesController.renderizarNotas = async (req, res)=>{
+    const notas = await Notes.find()
+    res.render('notes/todas-notas', {notas})};
 
 notesController.renderizarEditForm = (req, res)=>{
     res.send('nota editada')};
