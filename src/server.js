@@ -2,6 +2,9 @@
 const express = require('express');
 const exphbs = require('express-handlebars'); //lo llame exphbs porque es un abreviado de express handlebars
 const path = require('path');
+const metodoOverride = require('method-override');
+const flash = require('connect-flash');
+const session = require('express-session');
 
 //-------------------------------------------------------------------------------
 // Inicializaciones
@@ -31,7 +34,14 @@ app.set('view engine','.hbs')
 //cada vez que lleguen datos de un formulario a traves de cualquier metodo vamos a tratar
 //de convertir esos datos en un objeto json 
 app.use(express.urlencoded({extended:false}));
+app.use(metodoOverride('_method'));
+app.use(session({
+    secret:'secret',
+    resave:true,
+    saveUnitialized:true
+}));
 
+app.use(flash())
 
 //-------------------------------------------------------------------------------
 //Routes: que son las rutas
@@ -41,6 +51,11 @@ app.use(require('./routes/notes.routes'));
 
 //-------------------------------------------------------------------------------
 //Global variables
+app.use((req,res,next)=>{
+    res.locals.mensaje_exito = req.flash('mensaje de exito');
+    next();
+})
+
 
 //-------------------------------------------------------------------------------
 //static files o Archivos estaticos
