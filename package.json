@@ -25,6 +25,8 @@
     "dotenv": "^16.4.5",
     "handlebars": "^4.5.0",
     "nodemon": "^3.1.0",
-    "npm-check-updates": "^16.14.20"
+    "npm-check-updates": "^16.14.20",
+    "express-session": "^1.18.0",
+    "connect-flash": "^0.1.1"
   }
 }

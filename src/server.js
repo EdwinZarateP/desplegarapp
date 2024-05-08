@@ -40,21 +40,21 @@ app.use(session({
     resave:true,
     saveUnitialized:true
 }));
+app.use(flash());
 
-app.use(flash())
+//-------------------------------------------------------------------------------
+//Global variables
+app.use((req,res,next)=>{
+    res.locals.mensajes_exitos = req.flash('mensajes_exitos');
+    next();
+})
+
 
 //-------------------------------------------------------------------------------
 //Routes: que son las rutas
 
 app.use(require('./routes/index.routes'));
 app.use(require('./routes/notes.routes'));
-
-//-------------------------------------------------------------------------------
-//Global variables
-app.use((req,res,next)=>{
-    res.locals.mensaje_exito = req.flash('mensaje de exito');
-    next();
-})
 
 
 //-------------------------------------------------------------------------------

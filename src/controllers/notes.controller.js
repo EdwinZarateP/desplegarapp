@@ -9,7 +9,7 @@ notesController.crearNuevaNota = async (req, res)=>{
     const { titulo, descripcion } =req.body;
     const nuevaNota = new modeloNotas({title:titulo, description:descripcion});
     await nuevaNota.save();
-    req.flash('mensaje exitosos','nota agregada');
+    req.flash('mensajes_exitos','nota agregada');
     res.redirect('/notes')};
 
 notesController.renderizarNotas = async (req, res)=>{
@@ -24,12 +24,12 @@ notesController.renderizarEditForm = async (req, res)=>{
 notesController.actualizarNota = async (req, res)=>{
     const { title, description  } = req.body;
     await Notes.findByIdAndUpdate(req.params.id,{ title, description })
-    req.flash('mensaje exitosos','nota actualizada');
+    req.flash('mensajes_exitos','nota actualizada');
     res.redirect('/notes')};
     
 notesController.eliminarNota = async (req, res)=>{
     await Notes.findByIdAndDelete(req.params.id);
-    req.flash('mensaje exitosos','nota eliminada');
+    req.flash('mensajes_exitos','nota eliminada');
     res.redirect('/notes')
 }
 
