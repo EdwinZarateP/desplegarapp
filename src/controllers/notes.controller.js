@@ -8,12 +8,17 @@ notesController.renderizarNoteForm = (req, res)=>{
 notesController.crearNuevaNota = async (req, res)=>{
     const { titulo, descripcion } =req.body;
     const nuevaNota = new modeloNotas({title:titulo, description:descripcion});
+    nuevaNota.usuario=req.user.id;
     await nuevaNota.save();
     req.flash('mensajes_exitos','nota agregada');
     res.redirect('/notes')};
 
 notesController.renderizarNotas = async (req, res)=>{
-    const notas = await Notes.find()
+    const notas = await Notes.find({usuario:req.user.id })
+    if (notas.usuario != req.user.id){
+        req.flash('mensajes_errores', 'no autorizado')
+        return res.redirect('/notes');
+    }
     res.render('notes/todas-notas', {notas})};
 
 notesController.renderizarEditForm = async (req, res)=>{

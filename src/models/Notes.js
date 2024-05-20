@@ -4,8 +4,9 @@ const {Schema, model} = require('mongoose');
 
 //1. Creamos el Schema
 const NoteSchema= new Schema({
-    title:{ type:String, required:true },
-    description:{ type:String, required:true }
+    title:{ type:String, required:true},
+    description:{ type:String, required:true},
+    usuario:{ type:String, required:true}
 },
 {timestamps:true} //esta linea es para saber cuando se ha creado o actualizado el documento
 );

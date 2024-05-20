@@ -5,10 +5,12 @@ const path = require('path');
 const metodoOverride = require('method-override');
 const flash = require('connect-flash');
 const session = require('express-session');
+const passport =require('passport');
 
 //-------------------------------------------------------------------------------
 // Inicializaciones
 const app  = express();
+require('./config/passport')
 
 //-------------------------------------------------------------------------------
 //Settings o configuraciones: son lo que quiero qe haga express basado en algunos modulo
@@ -40,12 +42,17 @@ app.use(session({
     resave:true,
     saveUnitialized:true
 }));
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(flash());
 
 //-------------------------------------------------------------------------------
 //Global variables
 app.use((req,res,next)=>{
     res.locals.mensajes_exitos = req.flash('mensajes_exitos');
+    res.locals.mensajes_errores = req.flash('mensajes_errores');
+    res.locals.error = req.flash('error');
+    res.locals.user = req.user||null;
     next();
 })
 
@@ -55,6 +62,7 @@ app.use((req,res,next)=>{
 
 app.use(require('./routes/index.routes'));
 app.use(require('./routes/notes.routes'));
+app.use(require('./routes/users.routes'));
 
 
 //-------------------------------------------------------------------------------

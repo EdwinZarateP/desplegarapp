@@ -5,7 +5,7 @@ const encriptador = require('bcryptjs');
 //1. Creamos el Schema
 const UserSchema= new Schema({
     name:{ type:String, required:true },
-    email:{ type:String, required:true },
+    email:{ type:String, required:true, unique:true },
     password:{ type:String, required:true }
 },
 {timestamps:true} //esta linea es para saber cuando se ha creado o actualizado el documento
@@ -27,4 +27,4 @@ UserSchema.methods.compararpassword = async function(password){
 
 
 //4. creamos el modelo y lo exportamos
-module.exports = model('User', NoteSchema)
+module.exports = model('User', UserSchema)
